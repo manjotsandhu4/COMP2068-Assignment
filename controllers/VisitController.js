@@ -36,9 +36,37 @@ exports.index = async (req, res)=>{
     res.redirect('/');
   }
 };
-exports.show = async (req, res)=>{};
-exports.new = async (req, res)=>{};
-exports.create = async (req, res)=>{};
+
+//Show action 
+exports.show = async (req, res)=>{
+  try {
+    const visit = await Visit.findById(req.params.id)
+     .populate('user');
+    console.log(visit);
+
+    res.render(`${viewPath}/show`, {
+      pageTitle: visit.title,
+      visit: visit
+    });
+  } catch (error) {
+    req.flash('danger', `Sorry we encountered an Error while rendering this Visite:${error}`);
+    res.redirect('/');
+  }
+};
+
+//new action 
+exports.new = (req, res)=>{
+  res.render(`${viewPath}/new`, {
+    pageTitle: 'New Visit'
+  });
+};
+exports.create = async (req, res)=>{
+  try {
+    
+  } catch (error) {
+    
+  }
+};
 exports.edit = async (req, res)=>{};
 exports.update = async (req, res)=>{};
 exports.delete = async (req, res)=>{};
