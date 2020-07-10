@@ -11,7 +11,7 @@ const path = require('path');
   Step 2: Setup Mongoose (using environment variables)
 */
 const mongoose = require('mongoose');
-const passport = require('passport');
+//const passport = require('passport');
 
 mongoose.connect(process.env.DB_URI, {
   auth: {
@@ -37,7 +37,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-const user = require('./models/User');
+const User = require('./models/User');
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

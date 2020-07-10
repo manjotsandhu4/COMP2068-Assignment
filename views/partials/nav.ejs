@@ -12,14 +12,15 @@
       </li>
 
       <% if (authorized) { %>
-        
+        <div class="dropdown-divider"></div>
+            <a href="/visits/new" class="dropdown-item">New Visit</a>
       <% } %>
     </ul>
 
     <ul class="navbar-nav">
       <% if (!authorized) { %>
         <li class="nav-item">
-          <a href="/users/new" class="nav-link">
+          <a href="/register" class="nav-link">
             <i class="fa fa-user-plus"></i>
             Register
           </a>

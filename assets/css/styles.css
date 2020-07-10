@@ -33,3 +33,15 @@ header:not(.home-cta), .alert {
   text-align: center;
   z-index: 1;
 }
+
+.visit-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  align-items: center;
+}
+.form-inline {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}

@@ -12,3 +12,39 @@
   or query function. For example, you could have a
   book's details output in an easy format: book.format()
 */
+const mongoose = require('mongoose');
+
+const visitSchema = new mongoose.Schema({
+  user: {
+    type:mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  visitNumber:{
+    type: String,
+    required: true
+  },
+  location: {
+    type: String,
+    enum: ['Brampton', 'Peel', 'Vaughn', 'Bolton'],
+    default: 'Brampton'
+  },
+  visitType:{
+    type: String,
+    enum: ['Parking Ticket', 'Bail Hearing', 'Crown summon', 'Pardon Request'],
+    default: 'Parking Ticket'
+  },
+  visitDate:{
+    type: Date,    
+    required:true
+  },
+  visitTime:{
+    type: String,
+    enum:['7:00 am', '9:00 am', '11:00 am','1:00 pm', '3:00 pm'],
+    default: '7:00 am'
+  }
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model('Visit', visitSchema);

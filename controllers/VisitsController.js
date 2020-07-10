@@ -45,7 +45,7 @@ exports.show = async (req, res)=>{
     console.log(visit);
 
     res.render(`${viewPath}/show`, {
-      pageTitle: visit.title,
+      pageTitle: visit.visitNumber,
       visit: visit
     });
   } catch (error) {
@@ -82,7 +82,7 @@ exports.edit = async (req, res)=>{
   try {
     const visit = await Visit.findById(req.params.id);
     res.render(`${viewPath}/edit`, {
-      pageTitle: visit.title,
+      pageTitle: visit.visitNumber,
       formData: visit
     });
   } catch (error) {
